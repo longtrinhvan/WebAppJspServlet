@@ -187,3 +187,45 @@ $(document).ready(function () {
 	});
 });
 
+$(document).ready(function () {
+	var cart = [];
+	$(function() {
+		if (localStorage.cart) {
+			cart = JSON.parse(localStorage.cart);
+		}
+	});
+	function addToCart() {
+		var idproduct = $("#idproduct").val();
+		var nameproduct = $("#nameproduct").val();
+		var price = $("#price").val();
+		var marketprice = $("#marketprice").val();
+		var image = $("#image").val();
+		var total = $("#total").val();
+				for ( var i in cart) {
+					if (cart[i].idProduct == idproduct) {
+						cart[i].Total =Math.floor(cart[i].Total)+ Math.floor(total);
+						saveCart();
+						return;
+					}
+				}
+		var item = {
+			idProduct : idproduct,
+			nameProduct : nameproduct,
+			Price : price,
+			marketPrice : marketprice,
+			Image : image,
+			Total : total
+		};
+		cart.push(item);
+		saveCart();
+	}
+	function saveCart() {
+		if (window.localStorage) {
+			localStorage.cart = JSON.stringify(cart);
+		}
+	}
+	$(".addCart").on('click', function(e) {
+		addToCart();
+		alert(cart[0].Total);
+	});
+});
