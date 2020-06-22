@@ -162,7 +162,9 @@ $(document).ready(function () {
 							$(".response").eq(index).show().delay(400).fadeOut().queue(function () {
 								$('.more').eq(index).html(null).queue(function () {
 									$(".svg-rl").eq(index).show().queue(function () {
-										$('.a-morereply').eq(index).children('a').html("Xem thêm bình luận").dequeue();
+										$('.a-morereply').eq(index).children('a').html("Xem thêm bình luận").queue(function () {
+											$('.maxLocationreply').eq(index).val(0).dequeue();
+										}).stop();
 									}).stop();
 								}).stop();
 							}).stop();
