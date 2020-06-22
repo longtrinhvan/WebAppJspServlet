@@ -124,7 +124,7 @@ $(document)
 
 $(document).ready(function () {
 	$(".response").hide();
-	$('.a-morereply').on('click', function (e) {
+	$('body').on('click', '.a-morereply', function() {
 		var page = $('#pagecheck').val();
 		var idproduct = $('#idproduct').val();
 		var idcommentreply = $(this).children('.idcommentreply').val();
