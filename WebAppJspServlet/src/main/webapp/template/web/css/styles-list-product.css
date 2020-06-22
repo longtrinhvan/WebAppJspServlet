@@ -1,0 +1,549 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: none;
+	background-color: white;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+#coco {
+	position: absolute;
+	margin-top: 200px;
+}
+
+.menu {
+	overflow: hidden;
+	height: 130px;
+	background-color: rgb(39, 46, 121);
+	position: fixed;
+	top: 0;
+	width: 100%;
+	display: block;
+	z-index: 2;
+}
+
+.logo {
+	margin-top: 10px;
+	margin-left: 55px;
+	width: 153px;
+	height: 64px;
+	float: left;
+	margin-bottom: 10px;
+	background-color: rgb(39, 46, 121);
+}
+
+.logo h3 {
+	padding-left: 20px;
+	background-color: rgb(39, 46, 121);
+	border-bottom: 2px solid white;
+}
+
+.logo a {
+	color: white;
+	background-color: rgb(39, 46, 121);
+	font: 24px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans,
+		sans-serif;
+	font-weight: bolder;
+}
+
+.logo h4 {
+	cursor: pointer;
+	padding-top: 8px;
+	padding-left: 29px;
+	color: white;
+	background-color: rgb(39, 46, 121);
+	font: 16px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans,
+		sans-serif;
+	font-weight: bolder;
+}
+
+.seach-div {
+	float: left;
+	width: 730px;
+	height: 72px;
+	background-color: rgb(39, 46, 121);
+}
+
+.seach-div .seach {
+	width: 530px;
+	height: 30px;
+	border-bottom-left-radius: 2px;
+	border-top-left-radius: 2px;
+	margin-top: 42px;
+	margin-left: 62px;
+	margin-bottom: 10px;
+	float: left;
+	outline: 0;
+}
+
+.btn-seach {
+	width: 120px;
+	height: 30px;
+	margin-top: 42px;
+	margin-bottom: 10px;
+	float: left;
+	outline: 0;
+	border-bottom-right-radius: 2px;
+	border-top-right-radius: 2px;
+	background-color: rgb(236, 119, 24);
+	color: white;
+	font: 13px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans,
+		sans-serif;
+	cursor: pointer;
+}
+
+.btn-seach p {
+	margin-left: 10px;
+	float: left;
+	background-color: rgb(236, 119, 24);
+	margin-top: 4px;
+	cursor: pointer;
+}
+
+.btn-seach p a {
+	color: white;
+}
+
+#svg-search {
+	cursor: pointer;
+	float: left;
+	margin-left: 15px;
+	width: 20px;
+	height: 20px;
+	background-color: rgb(236, 119, 24);
+}
+
+.btn-seach:hover #svg-search {
+	background-color: rgb(255, 115, 0);
+}
+
+.btn-seach:hover p {
+	background-color: rgb(255, 115, 0);
+}
+
+.btn-seach:hover {
+	background-color: rgb(255, 115, 0);
+}
+
+.search-01-rw {
+	text-decoration: none;
+	background-color: rgb(236, 119, 24);
+}
+
+.btn-seach:hover .search-01-rw {
+	background-color: rgb(255, 115, 0);
+}
+
+.gio-hang {
+	margin-top: 45px;
+	margin-left: 13px;
+	float: left;
+	background-color: rgb(39, 46, 121);
+	width: 32px;
+	height: 32px;
+}
+
+#icon-gio-hang {
+	float: left;
+	color: white;
+	font-size: 26px;
+	background-color: rgb(39, 46, 121);
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+	cursor: pointer;
+}
+
+.dang-nhap {
+	margin-top: 30px;
+	float: right;
+	margin-right: 5.5%;
+	background-color: rgb(39, 46, 121);
+	padding-top: 13px;
+}
+
+.dang-nhap .dn {
+	float: left;
+	color: white;
+	font: 13px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans,
+		sans-serif;
+	background-color: rgb(18, 24, 114);
+	padding: 7px 7px 7px 7px;
+	border-right: 1px solid white;
+	border-radius: 2px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.dang-nhap .dn:hover {
+	background-color: rgb(17, 85, 187);
+}
+
+.dang-nhap .dk {
+	float: left;
+	color: white;
+	font: 13px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans,
+		sans-serif;
+	background-color: rgb(39, 46, 121);
+	padding: 7px 7px 7px 7px;
+	border-radius: 2px;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.dang-nhap .dk:hover {
+	background-color: rgb(27, 118, 146);
+}
+
+.danh-muc {
+	clear: left;
+	height: 37px;
+	background-color: rgb(39, 46, 121);
+}
+
+#menu-rw {
+	margin-top: 7px;
+	float: left;
+	background-color: rgb(39, 46, 121);
+	color: white;
+	font-size: 20px;
+	height: 20px;
+	width: 20px;
+}
+
+.danh-muc ul {
+	text-align: center;
+	margin-left: 75px
+}
+
+.danh-muc ul li {
+	text-align: center;
+	list-style-type: none;
+	float: left;
+	background-color: rgb(39, 46, 121);
+	width: 190px;
+}
+
+.danh-muc ul li a {
+	display: inline-block;
+	cursor: context-menu;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	list-style-type: none;
+	color: white;
+	background-color: rgb(39, 46, 121);
+	font: 13px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans,
+		sans-serif;
+	font-weight: bolder;
+	cursor: pointer;
+}
+
+.collections {
+	margin-top: 130px;
+	height: 40px;
+	background-color: rgb(235, 235, 235);
+}
+
+.product-div {
+	width: 100%;
+	height: 1522px;
+}
+
+.left-product-div {
+	float: left;
+	width: 23%;
+	height: 1522px;
+	background-color: rgb(235, 235, 235);
+}
+
+.left-seach-product-div {
+	margin-left: 24%;
+	width: 230px;
+	height: 1522px;
+	border-right: 1px solid rgb(223, 224, 224);
+	background-color: rgb(252, 252, 252);
+}
+
+.color {
+	width: 230px;
+	height: 30px;
+	background-color: rgb(252, 252, 252);
+}
+
+.loc-theo-gia-div {
+	padding-top: 40px;
+	width: 230px;
+	height: 200px;
+	border-bottom: 1px solid rgb(223, 224, 224);
+	background-color: rgb(252, 252, 252);
+}
+
+.loc-theo-gia-div h4 {
+	margin-left: 20px;
+	font: 14px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans,
+		sans-serif;
+	background-color: rgb(252, 252, 252);
+}
+
+.loc-theo-gia-input {
+	float: left;
+	margin-top: 10px;
+	width: 90px;
+	height: 30px;
+	background-color: rgb(245, 245, 245);
+	border-radius: 2px;
+	margin-left: 10px;
+	margin-right: 10px;
+	outline: 0;
+}
+
+.loc-theo-gia-button {
+	float: left;
+	margin-top: 10px;
+	width: 92px;
+	height: 30px;
+	background-color: rgb(245, 245, 245);
+	border-radius: 2px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.loc-theo-thuong-hieu-div {
+	padding-top: 20px;
+	width: 230px;
+	height: 140px;
+	border-bottom: 1px solid rgb(223, 224, 224);
+	background-color: rgb(252, 252, 252);
+}
+
+.loc-theo-thuong-hieu-div h4 {
+	margin-top: 20px;
+	margin-left: 20px;
+	font: 14px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans,
+		sans-serif;
+	background-color: rgb(252, 252, 252);
+}
+
+.loc-theo-thuong-hieu-button {
+	float: left;
+	margin-top: 10px;
+	width: 92px;
+	height: 30px;
+	background-color: rgb(245, 245, 245);
+	border-radius: 3px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.loc-theo-ram-div {
+	padding-top: 20px;
+	width: 230px;
+	height: 140px;
+	border-bottom: 1px solid rgb(223, 224, 224);
+	background-color: rgb(252, 252, 252);
+}
+
+.loc-theo-ram-div h4 {
+	margin-top: 20px;
+	margin-left: 20px;
+	font: 14px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans,
+		sans-serif;
+	background-color: rgb(252, 252, 252);
+}
+
+.loc-theo-ram-button {
+	float: left;
+	margin-top: 10px;
+	width: 92px;
+	height: 30px;
+	background-color: rgb(245, 245, 245);
+	border-radius: 3px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.loc-theo-HDD-div {
+	padding-top: 20px;
+	width: 230px;
+	height: 140px;
+	border-bottom: 1px solid rgb(223, 224, 224);
+	background-color: rgb(252, 252, 252);
+}
+
+.loc-theo-HDD-div h4 {
+	margin-top: 20px;
+	margin-left: 20px;
+	font: 14px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans,
+		sans-serif;
+	background-color: rgb(252, 252, 252);
+}
+
+.loc-theo-HDD-button {
+	float: left;
+	margin-top: 10px;
+	width: 92px;
+	height: 30px;
+	background-color: rgb(245, 245, 245);
+	border-radius: 3px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.loc-theo-ban-phim-div {
+	padding-top: 20px;
+	width: 230px;
+	height: 110px;
+	border-bottom: 1px solid rgb(223, 224, 224);
+	background-color: rgb(252, 252, 252);
+}
+
+.loc-theo-ban-phim-div h4 {
+	margin-top: 20px;
+	margin-left: 20px;
+	font: 14px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans,
+		sans-serif;
+	background-color: rgb(252, 252, 252);
+}
+
+.loc-theo-ban-phim-button {
+	float: left;
+	margin-top: 18px;
+	width: 97px;
+	height: 30px;
+	background-color: rgb(245, 245, 245);
+	border-radius: 3px;
+	margin-left: 10px;
+	margin-right: 5px;
+}
+
+.center-banner-product-div {
+	float: left;
+	height: 370px;
+	width: 77%;
+	background-color: rgb(240, 238, 238);
+}
+
+.center-banner-product-div img {
+	height: 340px;
+	width: 93%;
+}
+
+.center-product-div-rw {
+	float: left;
+	height: 1152px;
+	width: 77%;
+	background-color: rgb(240, 238, 238);
+	text-align: center;
+}
+
+.center-product-div {
+	float: left;
+	height: 1152px;
+	width: 93%;
+	text-align: center;
+}
+
+.list-product-div {
+	height: 1094px;
+	width: 890px;
+	margin: 0 auto;
+}
+
+.dell-product-div {
+	float: left;
+	margin-top: 20px;
+	height: 330px;
+	width: 200px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 2px;
+}
+
+.dell-product-div:hover {
+	box-shadow: -1px 0px 5px 1px rgb(172, 172, 172);
+	transition: 0.89s;
+}
+
+#i-tags {
+	position: absolute;
+	margin-top: 3px;
+	margin-left: 3px;
+	padding-top: 5px;
+	padding-left: 3px;
+	padding-right: 3px;
+	width: 35px;
+	height: 20px;
+	font: 13px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans,
+		sans-serif;
+	color: white;
+	background-color: rgb(143, 3, 3);
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+.img-dell-product-div {
+	height: 150px;
+	width: 150px;
+	padding-bottom: 20px;
+	margin-top: 50px;
+}
+
+.dell-product-div h4 {
+	margin-top: 5px;
+	padding: 5px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: unset;
+	font-size: 14px;
+	z-index: 2;
+	cursor: context-menu;
+}
+
+.dell-product-div a {
+	color: black;
+	text-decoration: none;
+	z-index: 2;
+	cursor: context-menu;
+}
+
+.dell-product-div h5 {
+	padding-left: 10px;
+	color: red;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 16px;
+	z-index: 2;
+	cursor: context-menu;
+}
+
+.pagination {
+	display: inline-block;
+	width: 100%;
+}
+
+.pagination-child {
+	float: right;
+	margin-right: 50px;
+	cursor: pointer;
+}
+
+.pagination a {
+	color: black;
+	float: left;
+	padding: 6px 12px;
+	text-decoration: none;
+	transition: background-color .3s;
+	border: 1px solid #ddd;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.about {
+	clear: left;
+	height: 100px;
+	width: 100%;
+	background-color: brown;
+}

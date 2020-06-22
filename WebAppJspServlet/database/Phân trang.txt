@@ -1,0 +1,13 @@
+Page
+totalPage= count(product /Maximum)
+if(chia có dư){
+totalPage= totalPage+1
+}else if(chia không có dư){
+totalPage= totalPage
+}
+Maximum
+upperLimit = Page * Maximum
+lowerLimit = Page * Maximum
+if(Page== totalPage){
+lowerLimit = Page * Maximum
+}
