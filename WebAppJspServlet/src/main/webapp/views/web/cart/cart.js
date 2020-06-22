@@ -8,7 +8,7 @@ $(document).ready(function () {
 	});
 
 	function deleteItem(index) {
-		cart.splice(index, 1); // delete item at index
+		cart.splice(index, 1); 
 		saveCart();
 	}
 
@@ -35,6 +35,7 @@ $(document).ready(function () {
 								+'</path>'
 							+'</svg>'
 							+'<h4 class="deleteCart" >Xóa sản phẩm khỏi giỏ hàng</h4>'
+							+'<input type="hidden" class="sttProduct" value="'+i+'">'
 						+'</div>'
 					+'</div>'
 					+'<div class="f02--p-01-rw">'
@@ -65,13 +66,12 @@ $(document).ready(function () {
 		}
 	}
 	$(".left").on('click','.deleteCart', function(e) {
-		var a= 3;
+		var index= $(this).next().val();
 		$.ajax({
 			url: 'gio-hang',
 			dataType: "html",
 			success: function (data) {
-				alert(a);
-				deleteItem(0);
+				deleteItem(index);
 				for ( var i in cart) {
 					var row = '<div class="f01-rw">'
 						+'<div class="f02-rw">'
