@@ -226,6 +226,5 @@ $(document).ready(function () {
 	}
 	$(".addCart").on('click', function(e) {
 		addToCart();
-		alert(cart[0].Total);
 	});
 });
