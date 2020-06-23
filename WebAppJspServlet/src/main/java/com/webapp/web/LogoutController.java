@@ -20,8 +20,7 @@ public class LogoutController extends HttpServlet {
 			throws ServletException, IOException {
 		System.out.println("Đăng xuất thành công!!!");
 		SessionUtil.getInstance().removeValue(request, "usermodel");
-		RequestDispatcher rd = request.getRequestDispatcher("/views/web/home/home.jsp");
-		rd.forward(request, response);
+		response.sendRedirect(request.getContextPath() + "/trang-chu");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

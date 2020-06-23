@@ -27,7 +27,14 @@ public class LoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String thongBao = request.getParameter("thongBao");
-		request.setAttribute("thongBao", thongBao);
+		if(thongBao !=null) {
+			if(thongBao.equals("noSupport")) {
+				thongBao = "Tài khoản không hỗ trợ chức năng này!!!";
+			} else if(thongBao.equals("notloggedin")){
+				thongBao = "Vui lòng đăng nhập!!!";
+			}
+			request.setAttribute("thongBao", thongBao);
+		}
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/login/login.jsp");
 		rd.forward(request, response);
 	}

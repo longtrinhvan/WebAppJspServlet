@@ -32,13 +32,14 @@ public class CartController extends HttpServlet {
 			if (model.getRoleid() == 2) {
 				thongBao = "Tài khoản không hỗ trợ chức năng này!!!";
 				request.setAttribute("thongBao", thongBao);
-				response.sendRedirect(request.getContextPath() + "/dang-nhap");
+				response.sendRedirect(request.getContextPath() + "/dang-nhap?thongBao=noSupport");
 				return;
 			}
 		} else {
 			thongBao = "Vui lòng đăng nhập!!!";
 			request.setAttribute("thongBao", thongBao);
-			response.sendRedirect(request.getContextPath() + "/dang-nhap");
+			
+			response.sendRedirect(request.getContextPath() + "/dang-nhap?thongBao=notloggedin");
 			return;
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/cart/cart.jsp");
