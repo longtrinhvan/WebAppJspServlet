@@ -323,6 +323,19 @@
 			<div class="icon-close-div-2"></div>
 		</div>
 	</div>
+	<div class="Show-AddCart">
+		<div class="Show-AddCart-01">
+			<div class="product-addcart">
+				<div class="title-product-addcart"><p>1 sản phẩm mới được thêm vào giỏ hàng của bạn</p></div>
+				<div class="img-product-addcart"><img 
+					src='<c:url value="/template/web/image/dell-1.PNG"/>'></div>
+			</div>
+			<div class="product-addcart-01">
+				
+			</div>
+		</div>
+	</div>
+
 	<div class="menu">
 		<div class="logo">
 			<h4>Duy Long</h4>

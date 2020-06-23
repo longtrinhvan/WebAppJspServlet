@@ -228,3 +228,10 @@ $(document).ready(function () {
 		addToCart();
 	});
 });
+
+$(document).ready(function () {
+	
+	$(".addCart").on('click', function(e) {
+		$(".Show-AddCart").css("display","flex");
+	});
+});
