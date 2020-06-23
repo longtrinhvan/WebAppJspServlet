@@ -71,4 +71,5 @@ $(document).ready(function () {
 		var index= $(this).next().val();
 		deleteItem(index);
 	});
+	
 });
