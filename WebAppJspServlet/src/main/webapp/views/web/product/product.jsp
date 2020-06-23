@@ -317,11 +317,12 @@
 	<div class="Show-AddCart">
 		<div class="Show-AddCart-01">
 			<div class="product-addcart">
-				<div class="title-product-addcart">
-					<p>1 sản phẩm mới được thêm vào giỏ hàng của bạn</p>
-				</div>
 				<div class="img-product-addcart">
 					<img src='<c:url value="/template/web/image/dell-1.PNG"/>'>
+				</div>
+				<div class="title-product-addcart">
+					<p>Laptop DELL Nitro 1 AN515-43-R84R</p>
+					<p>Giá: 12000000đ | Số lượng: 5</p>
 				</div>
 			</div>
 			<div class="product-addcart-01">
@@ -340,14 +341,14 @@
 						</g>
 					</svg>
 				</div>
-				<div>
+				<div class="div-svg-tick">
 					<svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
 						<circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
 						<path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
 					</svg>
 				</div>
 				<div class="product-add-cart">
-					<p>Laptop DELL Nitro 1 AN515-43-R84R</p>
+					<p>Thêm vào giỏ hàng</p>
 				</div>
 			</div>
 		</div>

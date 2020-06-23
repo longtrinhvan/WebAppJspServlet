@@ -143,7 +143,7 @@ html {
 }
 
 .Show-AddCart-01 {
-	width: 800px;
+	width: 850px;
 	height: 330px;
 	transition: 1s ease;
 	background-color: white;
@@ -152,52 +152,64 @@ html {
 }
 
 .product-addcart {
-	width: 350px;
+	width: 399px;
+	height: 330px;
 	float:left;
+	border-right: 1px solid rgb(190, 190, 190);
 }
-
+ 
 .title-product-addcart {
-	width: 350px;
+	width: 398px;
 	height: 30px;
+	text-align: center;
 }
 
 .title-product-addcart p {
 	margin-top: 15px;
-	margin-left: 15px;
 	font: 15px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans,
 		sans-serif;
-	color: #4caf50;
 	font: 15px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans,
 		sans-serif;
 }
 
 .img-product-addcart {
-	width: 350px;
-	height: 285px;
+	width: 398px;
+	height: 245px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
 .img-product-addcart img {
-	width: 250px;
-	height: 250px;
+	width: 200px;
+	height: 200px;
 }
 .product-addcart-01 {
 	width: 450px;
 	height: 330px;
 	float:left;
+	background-color: rgb(245,245,245);
+}
+.product-addcart-01 p {
+	background-color: rgb(245,245,245);
 }
 .product-add-cart{
 	width: 450px;
-	height: 30px;
+	height: 133px;
 	text-align: center;
 	font: 15px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans,
 		sans-serif;
+	background-color: rgb(245,245,245);
+	color: rgb(39, 46, 121);
+}
+
+.div-svg-tick{
+	background-color: rgb(245,245,245);
 }
 .close-addcart{
 	width: 450px;
 	height: 30px;
+	background-color: rgb(245,245,245);
 }
 #Capa_1{
 	float:right;
@@ -205,28 +217,31 @@ html {
 	width: 20px;
 	height: 20px;
 	margin-right: 10px;
+	background-color: rgb(245,245,245);
 }
 .checkmark__circle {
   stroke-dasharray: 166;
   stroke-dashoffset: 166;
   stroke-width: 2;
   stroke-miterlimit: 10;
-  stroke: #7ac142;
+  stroke: rgb(255, 115, 0);
   fill: none;
   animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+  background-color: rgb(245,245,245);
 }
 
 .checkmark {
-  width: 56px;
-  height: 56px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   display: block;
   stroke-width: 2;
-  stroke: #fff;
+  stroke: rgb(245,245,245);
   stroke-miterlimit: 10;
-  margin: 10% auto;
-  box-shadow: inset 0px 0px 0px #7ac142;
+  margin: 13% auto;
+  box-shadow: inset 0px 0px 0px rgb(255, 115, 0);
   animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+  background-color: rgb(245,245,245);
 }
 
 .checkmark__check {
@@ -234,6 +249,7 @@ html {
   stroke-dasharray: 48;
   stroke-dashoffset: 48;
   animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+  background-color: rgb(245,245,245);
 }
 
 @keyframes stroke {
@@ -251,7 +267,7 @@ html {
 }
 @keyframes fill {
   100% {
-    box-shadow: inset 0px 0px 0px 30px #7ac142;
+    box-shadow: inset 0px 0px 0px 30px rgb(255, 115, 0);
   }
 }
 
