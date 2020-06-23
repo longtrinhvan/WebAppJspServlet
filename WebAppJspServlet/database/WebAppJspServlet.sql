@@ -247,8 +247,7 @@ CREATE TABLE detailbill (
   idproductbuy int NOT NULL,
   nameproductbuy VARCHAR(255) NULL,
   totalproduct int NOT NULL,
-  totalMoneypro int NOT NULL,
-  datebuy DATETIME
+  totalMoneypro int NOT NULL
 );
 
 
