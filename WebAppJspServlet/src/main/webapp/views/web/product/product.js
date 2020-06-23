@@ -234,4 +234,7 @@ $(document).ready(function () {
 	$(".addCart").on('click', function(e) {
 		$(".Show-AddCart").css("display","flex");
 	});
+	$("#Capa_1").on('click', function(e) {
+		$(".Show-AddCart").css("display","none");
+	});
 });
