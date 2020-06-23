@@ -71,5 +71,17 @@ $(document).ready(function () {
 		var index= $(this).next().val();
 		deleteItem(index);
 	});
-	
+	$('.rw-r05').on('click', function() {
+					for ( var i in cart) {
+						var form = $('<form></form>');
+						form.attr("method", "get");
+						form.attr("action","gio-hang");		
+						var field = $('<input></input>');
+						field.attr("type", "hidden");
+						field.attr("name", "total");
+						field.attr("value", cart[i].Total);
+						form.append(field);
+						$(form).appendTo('body').submit();	
+						}
+	});
 });

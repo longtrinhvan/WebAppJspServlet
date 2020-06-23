@@ -19,7 +19,8 @@ public class CartController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		String page = request.getParameter("total");
+		System.out.println(page);
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/cart/cart.jsp");
 		rd.forward(request, response);
 	}
