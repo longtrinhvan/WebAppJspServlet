@@ -30,7 +30,6 @@ public class detailbillDao {
 	}
 
 	public List<detailbillModel> insertListDetailBill(List<detailbillModel> detailBill) throws SQLException {
-
 		for (detailbillModel dlM : detailBill) {
 			insertDetailBill(dlM);
 		}
