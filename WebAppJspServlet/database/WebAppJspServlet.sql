@@ -233,6 +233,23 @@ VALUES(75,'Laptop Apple Nitro 5 AN515-43-R84R',12000000,10000000,1,'samsung-2.PN
 INSERT INTO `WebAppJspServlet`.`product`(`idproduct`,`nameproduct`,`price`,`marketprice`,`statusid`,`image`,`producerid`,`total`)
 VALUES(76,'Laptop Apple Nitro 6 AN515-43-R84R',12000000,10000000,1,'samsung-2.PNG',4,100);
 
+CREATE TABLE bill (
+  idbill int NOT NULL PRIMARY KEY auto_increment,
+  iduserbuy int NOT NULL,
+  fullnamebuy VARCHAR(150) NOT NULL,
+  totalproduct int NOT NULL,
+  totalMoney int NOT NULL,
+  datebuy DATETIME
+);
+CREATE TABLE detailbill (
+  iddetailbill int NOT NULL PRIMARY KEY auto_increment,
+  idbill int NOT NULL,
+  idproductbuy int NOT NULL,
+  nameproductbuy VARCHAR(255) NULL,
+  totalproduct int NOT NULL,
+  totalMoneypro int NOT NULL,
+  datebuy DATETIME
+);
 
 
 DROP function IF EXISTS `FUNCTION_findNameUser`;
