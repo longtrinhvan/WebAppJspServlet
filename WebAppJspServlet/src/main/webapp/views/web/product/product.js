@@ -227,6 +227,13 @@ $(document).ready(function () {
 	$(".addCart").on('click', function(e) {
 		addToCart();
 	});
+	$('.buypro').on('click', function(e) {
+		addToCart();
+		var form = $('<form></form>');
+		form.attr("method", "post");
+		form.attr("action","gio-hang");		
+		$(form).appendTo('body').submit();
+	});
 });
 
 $(document).ready(function () {
@@ -238,3 +245,4 @@ $(document).ready(function () {
 		$(".Show-AddCart").css("display","none");
 	});
 });
+
