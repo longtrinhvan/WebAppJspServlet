@@ -1,27 +1,26 @@
 package com.webapp.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.webapp.connection.connect;
-import com.webapp.model.billModel;
 
 public class billDao {
-	private static final String INSERT_BILL= "INSERT INTO bill(idbill,iduserbuy,fullnamebuy,totalproduct,totalMoney,datebuy)VALUES(?,?,?,?,?,?)";
-	public void insertBill(billModel bill) throws SQLException {
+	private static final String INSERT_BILL= "INSERT INTO bill(idbill,iduserbuy,fullnamebuy,totalproduct,totalMoney,datebuy)VALUES(null,?,?,?,?,?)";
+	public void insertBill(int Iduserbuy,String Fullnamebuy,int Totalproduct,int TotalMoney, Date Datebuy) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		connect conn = new connect();
 		try {
 			connection = conn.getConnection();
 			preparedStatement = connection.prepareStatement(INSERT_BILL);
-			preparedStatement.setInt(1, bill.getIdbill());
-			preparedStatement.setInt(2, bill.getIduserbuy());
-			preparedStatement.setString(3, bill.getFullnamebuy());
-			preparedStatement.setInt(4, bill.getTotalproduct());
-			preparedStatement.setInt(5, bill.getTotalMoney());
-			preparedStatement.setDate(6, bill.getDatebuy());
+			preparedStatement.setInt(1, Iduserbuy);
+			preparedStatement.setString(2,Fullnamebuy);
+			preparedStatement.setInt(3, Totalproduct);
+			preparedStatement.setInt(4, TotalMoney);
+			preparedStatement.setDate(5, Datebuy);
 			preparedStatement.executeUpdate();
 		} catch (SQLException e) {
 			printSQLException(e);

@@ -3,38 +3,27 @@ package com.webapp.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.List;
 
 import com.webapp.connection.connect;
-import com.webapp.model.detailbillModel;
 
 public class detailbillDao {
-	private static final String INSERT_DETAILBILL = "INSERT INTO detailbill(iddetailbill,idbill,idproductbuy,nameproductbuy,totalproduct,totalMoneypro)VALUES(?,?,?,?,?,?)";
+	private static final String INSERT_DETAILBILL = "INSERT INTO detailbill(iddetailbill,idbill,idproductbuy,nameproductbuy,totalproduct,totalMoneypro)VALUES(null,?,?,?,?,?)";
 
-	public void insertDetailBill(detailbillModel detailBill) throws SQLException {
+	public void insertDetailBill(int Idbill,int Idproductbuy, String Nameproductbuy, int Totalproduct, int TotalMoneypro) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		connect conn = new connect();
 		try {
 			connection = conn.getConnection();
 			preparedStatement = connection.prepareStatement(INSERT_DETAILBILL);
-			preparedStatement.setInt(1, detailBill.getIddetailbill());
-			preparedStatement.setInt(2, detailBill.getIdbill());
-			preparedStatement.setInt(3, detailBill.getIdproductbuy());
-			preparedStatement.setString(4, detailBill.getNameproductbuy());
-			preparedStatement.setInt(5, detailBill.getTotalproduct());
-			preparedStatement.setInt(6, detailBill.getTotalMoneypro());
+			preparedStatement.setInt(1, Idbill);
+			preparedStatement.setInt(2, Idproductbuy);
+			preparedStatement.setString(3, Nameproductbuy);
+			preparedStatement.setInt(4, Totalproduct);
+			preparedStatement.setInt(5, TotalMoneypro);
 		} catch (SQLException e) {
 			printSQLException(e);
 		}
-	}
-
-	public List<detailbillModel> insertListDetailBill(List<detailbillModel> detailBill) throws SQLException {
-		for (detailbillModel dlM : detailBill) {
-			insertDetailBill(dlM);
-		}
-
-		return null;
 	}
 
 	private static void printSQLException(SQLException ex) {

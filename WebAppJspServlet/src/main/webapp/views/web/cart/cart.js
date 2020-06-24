@@ -72,16 +72,20 @@ $(document).ready(function () {
 		deleteItem(index);
 	});
 	$('.rw-r05').on('click', function() {
-					for ( var i in cart) {
-						var form = $('<form></form>');
-						form.attr("method", "get");
-						form.attr("action","gio-hang");		
-						var field = $('<input></input>');
-						field.attr("type", "hidden");
-						field.attr("name", "total");
-						field.attr("value", cart[i].Total);
-						form.append(field);
-						$(form).appendTo('body').submit();	
-						}
+		for ( var i in cart) {
+			$.ajax({
+				url: 'gio-hang',	
+				data:{
+					idProduct : cart[i].idProduct,
+					nameProduct : cart[i].nameProduct,
+					Price : cart[i].Price,
+					marketPrice : cart[i].marketPrice,
+					Image : cart[i].Image,
+					Total : cart[i].Total},
+				success: function (data) {
+				
+				}
+			});
+		}
 	});
 });
