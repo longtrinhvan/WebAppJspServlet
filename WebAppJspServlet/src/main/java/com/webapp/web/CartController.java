@@ -39,14 +39,21 @@ public class CartController extends HttpServlet {
 		int idbill = billdao.FUNCTION_findBillwithIdUser(model.getIduser());
 		try {
 			if (request.getParameter("statusBill") != null) {
-				if (Integer.parseInt(request.getParameter("statusBill")) == 0) {
+				int statusBill =Integer.parseInt(request.getParameter("statusBill"));
+				if (statusBill == 0) {
 					java.util.Date date = new java.util.Date();
 					java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 					billdao.insertBill(model.getIduser(), model.getUsername(), 0, 0, sqlDate, 0);
-				} else if (Integer.parseInt(request.getParameter("statusBill")) == 1) {
+				} else if (statusBill == 2) {
+					String idProduct = request.getParameter("idProduct");
+					String nameProduct = request.getParameter("nameProduct");
+					String Total = request.getParameter("Total");
+					String Totalmoney = request.getParameter("Totalmoney");
+					idbill = billdao.FUNCTION_findBillwithIdUser(model.getIduser());
+					detailbilldao.insertDetailBill(idbill, Integer.parseInt(idProduct), nameProduct,
+							Integer.parseInt(Total), Integer.parseInt(Totalmoney));
+				}else if (statusBill == 1) {
 					billdao.updateStatusBill(idbill, 1);
-				} else if (Integer.parseInt(request.getParameter("statusBill")) == 2) {
-					addDetailBill(request, response, idbill);
 				}
 			}
 		} catch (SQLException e) {
@@ -74,21 +81,6 @@ public class CartController extends HttpServlet {
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/cart/cart.jsp");
 		rd.forward(request, response);
-	}
-
-	protected void addDetailBill(HttpServletRequest request, HttpServletResponse response, int idbill)
-			throws ServletException, IOException {
-		String idProduct = request.getParameter("idProduct");
-		String nameProduct = request.getParameter("nameProduct");
-		String Total = request.getParameter("Total");
-		String Totalmoney = request.getParameter("Totalmoney");
-
-		try {
-			detailbilldao.insertDetailBill(idbill, Integer.parseInt(idProduct), nameProduct, Integer.parseInt(Total),
-					Integer.parseInt(Totalmoney));
-		} catch (NumberFormatException | SQLException e) {
-			e.printStackTrace();
-		}
 	}
 
 }

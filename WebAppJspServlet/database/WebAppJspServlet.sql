@@ -321,10 +321,12 @@ DELIMITER ;
 DROP procedure IF EXISTS `PROCEDURE_InsertBill`;
 DELIMITER $$
 USE `webappjspservlet`$$
-CREATE PROCEDURE `PROCEDURE_InsertBill` (username VARCHAR(150),password VARCHAR(150),fullname VARCHAR(150))
+CREATE PROCEDURE `PROCEDURE_InsertBill` (iduserbuyI INT ,fullnamebuyI VARCHAR(150),totalproductI INT,totalMoneyI INT,datebuyI DATETIME,statusbillI INT)
 BEGIN
-INSERT INTO `webappjspservlet`.`user`(`iduser`,`username`,`password`,`fullname`,`statusid`,`roleid`)
-VALUES(null,username,password,fullname,1,'1');
+INSERT INTO `bill`(`idbill`,`iduserbuy`,`fullnamebuy`,`totalproduct`,`totalMoney`,`datebuy`,`statusbill`)
+VALUES(null,iduserbuyI,fullnamebuyI,totalproductI,totalMoneyI,datebuyI,statusbillI);
 END$$
 DELIMITER ;
+select *from bill;
+select *from detailbill;
 
