@@ -17,7 +17,6 @@ public class userDao {
 
 	public int findNameUser(String userName) {
 		Connection connection = null;
-		PreparedStatement preparedStatement = null;
 		connect conn = new connect();
 		try {
 			connection = conn.getConnection();
@@ -34,9 +33,6 @@ public class userDao {
 				if (connection != null) {
 					connection.close();
 				}
-				if (preparedStatement != null) {
-					preparedStatement.close();
-				}
 			} catch (SQLException e) {
 				return 0;
 			}
@@ -47,7 +43,6 @@ public class userDao {
 	public userModel findUser(String userName) {
 		userModel  usermodel =null;
 		Connection connection = null;
-		PreparedStatement preparedStatement = null;
 		connect conn = new connect();
 		ResultSet rs = null;
 		try {
@@ -71,9 +66,6 @@ public class userDao {
 			try {
 				if (connection != null) {
 					connection.close();
-				}
-				if (preparedStatement != null) {
-					preparedStatement.close();
 				}
 			} catch (SQLException e) {
 				return null;

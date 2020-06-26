@@ -2,7 +2,6 @@ package com.webapp.dao;
 
 import java.sql.Connection;
 import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.mysql.cj.jdbc.CallableStatement;
@@ -64,7 +63,6 @@ public class billDao {
 	
 	public int FUNCTION_findBillwithIdUser(int  idUser) {
 		Connection connection = null;
-		PreparedStatement preparedStatement = null;
 		connect conn = new connect();
 		try {
 			connection = conn.getConnection();
@@ -80,9 +78,6 @@ public class billDao {
 			try {
 				if (connection != null) {
 					connection.close();
-				}
-				if (preparedStatement != null) {
-					preparedStatement.close();
 				}
 			} catch (SQLException e) {
 				return 0;
