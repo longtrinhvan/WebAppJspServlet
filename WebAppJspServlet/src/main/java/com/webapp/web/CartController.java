@@ -29,6 +29,17 @@ public class CartController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		userModel model = (userModel) SessionUtil.getInstance().getValue(request, "usermodel");
+		String thongBao = "";
+		if (model != null) {
+			if (model.getRoleid() == 2) {
+				thongBao = "error";
+				request.setAttribute("thongBao", thongBao);
+			}
+		} else {
+			thongBao = "error";
+			request.setAttribute("thongBao", thongBao);
+		}
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/cart/cart.jsp");
 		rd.forward(request, response);
 	}
@@ -36,16 +47,12 @@ public class CartController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		userModel model = (userModel) SessionUtil.getInstance().getValue(request, "usermodel");
-		String thongBao = "error";
-		request.setAttribute("thongBao", thongBao);
 		if (model != null) {
 			if (model.getRoleid() == 2) {
-				request.setAttribute("thongBao", thongBao);
 				response.sendRedirect(request.getContextPath() + "/dang-nhap?thongBao=noSupport");
 				return;
 			}
 		} else {
-			request.setAttribute("thongBao", thongBao);
 			response.sendRedirect(request.getContextPath() + "/dang-nhap?thongBao=notloggedin");
 			return;
 		}

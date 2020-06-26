@@ -71,34 +71,7 @@ $(document).ready(function () {
 		var index= $(this).next().val();
 		deleteItem(index);
 	});
-	$('.rw-r05').on('click', function() {
-		
-		if(cart.length==0){
-			return;
-		}
-		$.ajax({
-			url: 'gio-hang',
-			type: 'post',
-			dataType: "html",
-			data:{
-				statusBill:0
-			},success: function (data) {
-				if($(data).find('#thongBao').val()=="error"){
-					var form = $('<form></form>');
-					form.attr("method", "post");
-					form.attr("action","gio-hang");		
-					$(form).appendTo('body').submit();
-					return;
-				}
-			}
-		});
-		$.ajax({
-			url: 'gio-hang',
-			type: 'post',
-			data:{
-				statusBill:0
-			}
-		});
+	function AddCart() {
 		for ( var i in cart) {
 			$.ajax({
 				url: 'gio-hang',
@@ -115,16 +88,47 @@ $(document).ready(function () {
 				}
 			});
 		}
+	}
+	$('.rw-r05').on('click', function() {
+		
+		if(cart.length==0){
+			return;
+		} else{
+			$.ajax({
+				url: 'gio-hang',
+				type: 'get',
+				dataType: "html",
+				data:{
+					statusBill:0
+				},success: function (data) {
+					if($(data).find('#thongBao').val()=="error"){
+						var form = $('<form></form>');
+						form.attr("method", "post");
+						form.attr("action","gio-hang");		
+						$(form).appendTo('body').submit();
+						return;
+					}
+				}
+			});
+		}
 		$.ajax({
 			url: 'gio-hang',
 			type: 'post',
 			data:{
-				statusBill:1
+				statusBill:0
+			},success: function (data) {
+				AddCart();				
+				$.ajax({
+					url: 'gio-hang',
+					type: 'post',
+					data:{
+						statusBill:1
+					},success: function (data) {
+						localStorage.clear();
+						$(".left").html(null);
+					}
+				});
 			}
 		});
-		for ( var i in cart) {
-			deleteItem(i);
-		}
-		
 	});
 });
