@@ -336,9 +336,8 @@ DELIMITER $$
 USE `webappjspservlet`$$
 CREATE PROCEDURE `PROCEDURE_InsertDetailbill` (idbillI int,idproductbuyI int,nameproductbuyI VARCHAR(255),totalproductI int ,totalMoneyproI int )
 BEGIN
-INSERT INTO `detailbill`(`idbill`,`idproductbuy`,`nameproductbuy`,`totalproduct`,`totalMoneypro`)
-VALUES(idbillI,idproductbuyI,nameproductbuyI,totalproductI,totalMoneyproI);
-
+INSERT INTO `detailbill`(`iddetailbill`,`idbill`,`idproductbuy`,`nameproductbuy`,`totalproduct`,`totalMoneypro`)
+VALUES(null,idbillI,idproductbuyI,nameproductbuyI,totalproductI,totalMoneyproI);
 END$$
 DELIMITER ;
 

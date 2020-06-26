@@ -24,6 +24,7 @@ public class CartController extends HttpServlet {
 
 	public void init() {
 		billdao = new billDao();
+		detailbilldao = new detailbillDao();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -48,12 +49,9 @@ public class CartController extends HttpServlet {
 					String nameProduct = request.getParameter("nameProduct");
 					String Total = request.getParameter("Total");
 					String Totalmoney = request.getParameter("Totalmoney");
-					int idbill = billdao.FUNCTION_findBillwithIdUser(model.getIduser());
-					detailbilldao.insertDetailBill(idbill, Integer.parseInt(idProduct), nameProduct,
-							Integer.parseInt(Total), Integer.parseInt(Totalmoney));
+					detailbilldao.insertDetailBill(1, 51, nameProduct, 0, 0);
 				} else if (statusBill == 1) {
-					int idbill = billdao.FUNCTION_findBillwithIdUser(model.getIduser());
-					billdao.updateStatusBill(idbill, 1);
+					billdao.updateStatusBill(billdao.FUNCTION_findBillwithIdUser(model.getIduser()), 1);
 				}
 			}
 		} catch (SQLException e) {

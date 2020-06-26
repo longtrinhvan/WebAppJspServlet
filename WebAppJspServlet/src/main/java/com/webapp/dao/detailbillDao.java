@@ -1,8 +1,6 @@
 package com.webapp.dao;
 
 import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import com.mysql.cj.jdbc.CallableStatement;
