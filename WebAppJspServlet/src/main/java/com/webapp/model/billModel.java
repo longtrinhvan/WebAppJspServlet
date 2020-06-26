@@ -3,12 +3,14 @@ package com.webapp.model;
 import java.sql.Date;
 
 public class billModel {
-	private int idbill ;
-	private int   iduserbuy ;
-	private String   fullnamebuy ;
-	private int   totalproduct ;
-	private int   totalMoney ;
-	private Date  datebuy ;
+	private int idbill;
+	private int iduserbuy;
+	private String fullnamebuy;
+	private int totalproduct;
+	private int totalMoney;
+	private Date datebuy;
+	private int statusbill;
+	
 	
 	
 	public billModel() {
@@ -50,6 +52,13 @@ public class billModel {
 	public void setDatebuy(Date datebuy) {
 		this.datebuy = datebuy;
 	}
-	
-	
+	public int getStatusbill() {
+		return statusbill;
+	}
+	public void setStatusbill(int statusbill) {
+		this.statusbill = statusbill;
+	}
+
+
+
 }

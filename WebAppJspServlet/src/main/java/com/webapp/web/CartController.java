@@ -29,16 +29,28 @@ public class CartController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/cart/cart.jsp");
 		rd.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		userModel model = (userModel) SessionUtil.getInstance().getValue(request, "usermodel");
 		checklogin(request, response);
-		addDetailBill(request, response);
+		int idbill = billdao.FUNCTION_findBillwithIdUser(model.getIduser());
+
+		if(request.getParameter("statusBill")!=null) {
+			if(Integer.parseInt(request.getParameter("statusBill"))==0) {
+				java.util.Date date = new java.util.Date();
+				java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+				
+			} else if(Integer.parseInt(request.getParameter("statusBill"))==1) {
+				billdao.updateStatusBill(idbill, 1);
+			}
+			else if(Integer.parseInt(request.getParameter("statusBill"))==2) {
+				addDetailBill(request, response, idbill);
+			}
+		}
 	}
 
 	protected void checklogin(HttpServletRequest request, HttpServletResponse response)
@@ -63,7 +75,7 @@ public class CartController extends HttpServlet {
 		rd.forward(request, response);
 	}
 
-	protected void addDetailBill(HttpServletRequest request, HttpServletResponse response)
+	protected void addDetailBill(HttpServletRequest request, HttpServletResponse response, int idbill)
 			throws ServletException, IOException {
 		String idProduct = request.getParameter("idProduct");
 		String nameProduct = request.getParameter("nameProduct");
@@ -71,19 +83,11 @@ public class CartController extends HttpServlet {
 		String Totalmoney = request.getParameter("Totalmoney");
 
 		try {
-			detailbilldao.insertDetailBill(1, Integer.parseInt(idProduct), nameProduct, Integer.parseInt(Total), Integer.parseInt(Totalmoney));
+			detailbilldao.insertDetailBill(1, Integer.parseInt(idProduct), nameProduct, Integer.parseInt(Total),
+					Integer.parseInt(Totalmoney));
 		} catch (NumberFormatException | SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
-	protected void addBill(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		userModel model = (userModel) SessionUtil.getInstance().getValue(request, "usermodel");
-		try {
-			billdao.insertBill(model.getIduser(), model.getUsername(), 0, 0, (Date) new java.util.Date());
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
 }

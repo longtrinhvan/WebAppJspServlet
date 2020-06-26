@@ -234,12 +234,13 @@ INSERT INTO `WebAppJspServlet`.`product`(`idproduct`,`nameproduct`,`price`,`mark
 VALUES(76,'Laptop Apple Nitro 6 AN515-43-R84R',12000000,10000000,1,'samsung-2.PNG',4,100);
 
 CREATE TABLE bill (
-  idbill int NOT NULL PRIMARY KEY auto_increment,
-  iduserbuy int NOT NULL,
+  idbill INT NOT NULL PRIMARY KEY auto_increment,
+  iduserbuy INT NOT NULL,
   fullnamebuy VARCHAR(150) NOT NULL,
-  totalproduct int NOT NULL,
-  totalMoney int NOT NULL,
-  datebuy DATETIME
+  totalproduct INT,
+  totalMoney INT,
+  datebuy DATETIME,
+  statusbill INT
 );
 CREATE TABLE detailbill (
   iddetailbill int NOT NULL PRIMARY KEY auto_increment,
@@ -293,3 +294,16 @@ SET `username` = username,`password` = password,`fullname` = fullname,`statusid`
 END$$
 DELIMITER ;
 SELECT idcomment,idproductcomment ,idusercomment ,textcomment , datecomment ,username,fullname from comment,user where comment.idproductcomment =51 and comment.idusercomment = user.iduser and statusid=1 ORDER BY idcomment DESC LIMIT 0, 5;
+
+DROP function IF EXISTS `FUNCTION_findBillwithIdUser`;
+DELIMITER $$
+USE `webappjspservlet`$$
+CREATE FUNCTION `FUNCTION_findBillwithIdUser`(id int) RETURNS int
+BEGIN
+ declare kq int;
+set kq=(SELECT idbill FROM bill where iduserbuy = id and statusbill = 0);
+RETURN kq;
+END$$
+DELIMITER ;
+
+select FUNCTION_findBillwithIdUser(1);

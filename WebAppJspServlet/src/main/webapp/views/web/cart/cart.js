@@ -74,7 +74,8 @@ $(document).ready(function () {
 	$('.rw-r05').on('click', function() {
 		for ( var i in cart) {
 			$.ajax({
-				url: 'gio-hang',	
+				url: 'gio-hang',
+				type: 'post',
 				data:{
 					idProduct : cart[i].idProduct,
 					nameProduct : cart[i].nameProduct,
@@ -83,7 +84,7 @@ $(document).ready(function () {
 					Image : cart[i].Image,
 					Total : cart[i].Total},
 				success: function (data) {
-				
+				       
 				}
 			});
 		}
