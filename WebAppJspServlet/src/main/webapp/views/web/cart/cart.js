@@ -72,6 +72,16 @@ $(document).ready(function () {
 		deleteItem(index);
 	});
 	$('.rw-r05').on('click', function() {
+		$.ajax({
+			url: 'gio-hang',
+			type: 'post',
+			data:{
+				statusBill:0
+			},
+			success: function (data) {
+			       
+			}
+		});
 		for ( var i in cart) {
 			$.ajax({
 				url: 'gio-hang',
@@ -82,11 +92,21 @@ $(document).ready(function () {
 					Price : cart[i].Price,
 					marketPrice : cart[i].marketPrice,
 					Image : cart[i].Image,
-					Total : cart[i].Total},
-				success: function (data) {
-				       
+					Total : cart[i].Total,
+					statusBill:2
+				},
+				success: function (data) {				       
 				}
 			});
 		}
+		$.ajax({
+			url: 'gio-hang',
+			type: 'post',
+			data:{
+				statusBill:1
+			},
+			success: function (data) {	       
+			}
+		});
 	});
 });

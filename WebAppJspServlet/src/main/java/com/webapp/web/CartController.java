@@ -37,21 +37,20 @@ public class CartController extends HttpServlet {
 		userModel model = (userModel) SessionUtil.getInstance().getValue(request, "usermodel");
 		checklogin(request, response);
 		int idbill = billdao.FUNCTION_findBillwithIdUser(model.getIduser());
-
-		if (request.getParameter("statusBill") != null) {
-			if (Integer.parseInt(request.getParameter("statusBill")) == 0) {
-				java.util.Date date = new java.util.Date();
-				java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-				try {
+		try {
+			if (request.getParameter("statusBill") != null) {
+				if (Integer.parseInt(request.getParameter("statusBill")) == 0) {
+					java.util.Date date = new java.util.Date();
+					java.sql.Date sqlDate = new java.sql.Date(date.getTime());
 					billdao.insertBill(model.getIduser(), model.getUsername(), 0, 0, sqlDate, 0);
-				} catch (SQLException e) {
-					e.printStackTrace();
+				} else if (Integer.parseInt(request.getParameter("statusBill")) == 1) {
+					billdao.updateStatusBill(idbill, 1);
+				} else if (Integer.parseInt(request.getParameter("statusBill")) == 2) {
+					addDetailBill(request, response, idbill);
 				}
-			} else if (Integer.parseInt(request.getParameter("statusBill")) == 1) {
-				billdao.updateStatusBill(idbill, 1);
-			} else if (Integer.parseInt(request.getParameter("statusBill")) == 2) {
-				addDetailBill(request, response, idbill);
 			}
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -85,7 +84,7 @@ public class CartController extends HttpServlet {
 		String Totalmoney = request.getParameter("Totalmoney");
 
 		try {
-			detailbilldao.insertDetailBill(1, Integer.parseInt(idProduct), nameProduct, Integer.parseInt(Total),
+			detailbilldao.insertDetailBill(idbill, Integer.parseInt(idProduct), nameProduct, Integer.parseInt(Total),
 					Integer.parseInt(Totalmoney));
 		} catch (NumberFormatException | SQLException e) {
 			e.printStackTrace();
