@@ -118,11 +118,11 @@ $(document).ready(function () {
 				statusBill:0
 			},success: function (data) {
 				AddCart();
-				var TotalProductInBill =0;
-				var TotalmoneyInBill =0;
+				var totalProductInBill =0;
+				var totalmoneyInBill =0;
 				for ( var i in cart) {		
-					TotalProductInBill =totalmoneyInBill+ cart[i].Total;
-					TotalmoneyInBill= totalmoneyInBill + cart[i].Totalmoney*cart[i].Total;
+					totalProductInBill =Math.floor(totalProductInBill)+ Math.floor(cart[i].Total);
+					totalmoneyInBill= Math.floor(totalmoneyInBill) + Math.floor(cart[i].Totalmoney)*Math.floor(cart[i].Total);
 				}
 				$.ajax({
 					url: 'gio-hang',
