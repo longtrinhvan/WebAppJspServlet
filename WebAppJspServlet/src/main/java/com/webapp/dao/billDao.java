@@ -10,7 +10,7 @@ import com.webapp.connection.connect;
 public class billDao {
 	private static final String INSERT_BILL= "{call PROCEDURE_InsertBill(?,?,?,?,?,?)}";
 	private static final String SELECT_FUNCT_Id_USER_BUY= "{?= call FUNCTION_findBillwithIdUser(?)}";
-	private static final String UPDATE_STATUS_BILL= "{call PROCEDURE_updateStatusBill(?,?)}";
+	private static final String UPDATE_BILL= "{call PROCEDURE_updateStatusBill(?,?,?,?)}";
 	public int insertBill(int Iduserbuy,String Fullnamebuy,int Totalproduct,int TotalMoney, Date Datebuy , int statusbill) throws SQLException {
 		Connection connection = null;
 		connect conn = new connect();
@@ -43,7 +43,7 @@ public class billDao {
 		connect conn = new connect();
 		try {
 			connection = conn.getConnection();
-			CallableStatement statement = (CallableStatement) connection.prepareCall(UPDATE_STATUS_BILL);
+			CallableStatement statement = (CallableStatement) connection.prepareCall(UPDATE_BILL);
 			statement.setInt(1, idBill);
 			statement.setInt(2, StatusBill);
 			statement.setInt(3, TotalProductInBill);

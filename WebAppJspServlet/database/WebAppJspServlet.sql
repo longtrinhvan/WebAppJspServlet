@@ -311,10 +311,11 @@ select FUNCTION_findBillwithIdUser(1);
 DROP procedure IF EXISTS `PPROCEDURE_updateStatusBill`;
 DELIMITER $$
 USE `webappjspservlet`$$
-CREATE PROCEDURE `PROCEDURE_updateStatusBill` (id int,statusid int)
+CREATE PROCEDURE `PROCEDURE_updateStatusBill` (id int,statusid int,totalproductI int, totalMoneyI int )
 BEGIN
 UPDATE bill
-SET `statusbill` = statusid WHERE `idbill` = id;
+SET `statusbill` = statusid,`totalproduct`= totalproductI ,`totalMoney` =totalMoneyI WHERE `idbill` = id;
+
 END$$
 DELIMITER ;
 
