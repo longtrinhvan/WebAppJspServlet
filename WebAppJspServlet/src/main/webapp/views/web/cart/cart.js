@@ -93,6 +93,7 @@ $(document).ready(function () {
 					marketPrice : cart[i].marketPrice,
 					Image : cart[i].Image,
 					Total : cart[i].Total,
+					Totalmoney:cart[i].Totalmoney,
 					statusBill:2
 				},
 				success: function (data) {				       
@@ -108,5 +109,9 @@ $(document).ready(function () {
 			success: function (data) {	       
 			}
 		});
+		for ( var i in cart) {
+			deleteItem(i);
+		}
+		
 	});
 });

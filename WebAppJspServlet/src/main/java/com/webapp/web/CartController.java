@@ -49,7 +49,9 @@ public class CartController extends HttpServlet {
 					String nameProduct = request.getParameter("nameProduct");
 					String Total = request.getParameter("Total");
 					String Totalmoney = request.getParameter("Totalmoney");
-					detailbilldao.insertDetailBill(billdao.FUNCTION_findBillwithIdUser(model.getIduser()),Integer.parseInt(idProduct), nameProduct, 0, 0);
+					detailbilldao.insertDetailBill(billdao.FUNCTION_findBillwithIdUser(model.getIduser()),
+							Integer.parseInt(idProduct), nameProduct, Integer.parseInt(Total),
+							Integer.parseInt(Totalmoney));
 				} else if (statusBill == 1) {
 					billdao.updateStatusBill(billdao.FUNCTION_findBillwithIdUser(model.getIduser()), 1);
 				}

@@ -201,6 +201,7 @@ $(document).ready(function () {
 		var marketprice = $("#marketprice").val();
 		var image = $("#image").val();
 		var total = $("#total").val();
+		var totalmoney = total*price;
 				for ( var i in cart) {
 					if (cart[i].idProduct == idproduct) {
 						cart[i].Total =Math.floor(cart[i].Total)+ Math.floor(total);
@@ -214,7 +215,8 @@ $(document).ready(function () {
 			Price : price,
 			marketPrice : marketprice,
 			Image : image,
-			Total : total
+			Total : total,
+			Totalmoney :totalmoney
 		};
 		cart.push(item);
 		saveCart();
