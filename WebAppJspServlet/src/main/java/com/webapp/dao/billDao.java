@@ -9,7 +9,7 @@ import com.mysql.cj.jdbc.CallableStatement;
 import com.webapp.connection.connect;
 
 public class billDao {
-	private static final String INSERT_BILL= "INSERT INTO bill(idbill,iduserbuy,fullnamebuy,totalproduct,totalMoney,datebuy,statusbill)VALUES(null,?,?,?,?,?,?)";
+	private static final String INSERT_BILL= "{call PROCEDURE_InsertBill(?,?,?,?,?,?)}";
 	private static final String SELECT_FUNCT_Id_USER_BUY= "{?= call FUNCTION_findBillwithIdUser(?)}";
 	private static final String UPDATE_STATUS_BILL= "{call PROCEDURE_updateStatusBill(?,?)}";
 	public int insertBill(int Iduserbuy,String Fullnamebuy,int Totalproduct,int TotalMoney, Date Datebuy , int statusbill) throws SQLException {

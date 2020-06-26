@@ -1,7 +1,6 @@
 package com.webapp.web;
 
 import java.io.IOException;
-import java.sql.Date;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -39,15 +38,18 @@ public class CartController extends HttpServlet {
 		checklogin(request, response);
 		int idbill = billdao.FUNCTION_findBillwithIdUser(model.getIduser());
 
-		if(request.getParameter("statusBill")!=null) {
-			if(Integer.parseInt(request.getParameter("statusBill"))==0) {
+		if (request.getParameter("statusBill") != null) {
+			if (Integer.parseInt(request.getParameter("statusBill")) == 0) {
 				java.util.Date date = new java.util.Date();
 				java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-				
-			} else if(Integer.parseInt(request.getParameter("statusBill"))==1) {
+				try {
+					billdao.insertBill(model.getIduser(), model.getUsername(), 0, 0, sqlDate, 0);
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			} else if (Integer.parseInt(request.getParameter("statusBill")) == 1) {
 				billdao.updateStatusBill(idbill, 1);
-			}
-			else if(Integer.parseInt(request.getParameter("statusBill"))==2) {
+			} else if (Integer.parseInt(request.getParameter("statusBill")) == 2) {
 				addDetailBill(request, response, idbill);
 			}
 		}

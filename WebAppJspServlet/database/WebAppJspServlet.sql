@@ -307,3 +307,24 @@ END$$
 DELIMITER ;
 
 select FUNCTION_findBillwithIdUser(1);
+
+DROP procedure IF EXISTS `PPROCEDURE_updateStatusBill`;
+DELIMITER $$
+USE `webappjspservlet`$$
+CREATE PROCEDURE `PROCEDURE_updateStatusBill` (id int,statusid int)
+BEGIN
+UPDATE bill
+SET `statusbill` = statusid WHERE `idbill` = id;
+END$$
+DELIMITER ;
+
+DROP procedure IF EXISTS `PROCEDURE_InsertBill`;
+DELIMITER $$
+USE `webappjspservlet`$$
+CREATE PROCEDURE `PROCEDURE_InsertBill` (username VARCHAR(150),password VARCHAR(150),fullname VARCHAR(150))
+BEGIN
+INSERT INTO `webappjspservlet`.`user`(`iduser`,`username`,`password`,`fullname`,`statusid`,`roleid`)
+VALUES(null,username,password,fullname,1,'1');
+END$$
+DELIMITER ;
+
