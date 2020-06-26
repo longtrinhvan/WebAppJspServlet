@@ -3,9 +3,6 @@ package com.webapp.web;
 import java.io.IOException;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,8 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.webapp.dao.billDao;
 import com.webapp.dao.detailbillDao;
-import com.webapp.dao.producerDao;
-import com.webapp.model.detailbillModel;
 import com.webapp.model.userModel;
 import com.webapp.utils.SessionUtil;
 
