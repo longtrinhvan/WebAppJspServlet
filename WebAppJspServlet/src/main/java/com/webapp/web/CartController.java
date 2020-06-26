@@ -36,7 +36,15 @@ public class CartController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		userModel model = (userModel) SessionUtil.getInstance().getValue(request, "usermodel");
-		checklogin(request, response);
+		if (model != null) {
+			if (model.getRoleid() == 2) {
+				response.sendRedirect(request.getContextPath() + "/dang-nhap?thongBao=noSupport");
+				return;
+			}
+		} else {
+			response.sendRedirect(request.getContextPath() + "/dang-nhap?thongBao=notloggedin");
+			return;
+		}
 		try {
 			if (request.getParameter("statusBill") != null) {
 				int statusBill = Integer.parseInt(request.getParameter("statusBill"));
@@ -58,26 +66,6 @@ public class CartController extends HttpServlet {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-	}
-
-	protected void checklogin(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		userModel model = (userModel) SessionUtil.getInstance().getValue(request, "usermodel");
-		String thongBao = "";
-		if (model != null) {
-			if (model.getRoleid() == 2) {
-				thongBao = "Tài khoản không hỗ trợ chức năng này!!!";
-				request.setAttribute("thongBao", thongBao);
-				response.sendRedirect(request.getContextPath() + "/dang-nhap?thongBao=noSupport");
-				return;
-			}
-		} else {
-			thongBao = "Vui lòng đăng nhập!!!";
-			request.setAttribute("thongBao", thongBao);
-
-			response.sendRedirect(request.getContextPath() + "/dang-nhap?thongBao=notloggedin");
-			return;
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("/views/web/cart/cart.jsp");
 		rd.forward(request, response);

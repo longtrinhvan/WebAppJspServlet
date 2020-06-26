@@ -99,6 +99,7 @@
 			</div>
 		</div>
 	</div>
+	<input type="hidden" value="${thongBao}" id="thongBao" />
 	<div class="about"></div>
 </body>
 

@@ -72,14 +72,15 @@ $(document).ready(function () {
 		deleteItem(index);
 	});
 	$('.rw-r05').on('click', function() {
+		
+		if(cart.length==0){
+			return;
+		}
 		$.ajax({
 			url: 'gio-hang',
 			type: 'post',
 			data:{
 				statusBill:0
-			},
-			success: function (data) {
-			       
 			}
 		});
 		for ( var i in cart) {
@@ -95,8 +96,6 @@ $(document).ready(function () {
 					Total : cart[i].Total,
 					Totalmoney:cart[i].Totalmoney,
 					statusBill:2
-				},
-				success: function (data) {				       
 				}
 			});
 		}
@@ -105,8 +104,6 @@ $(document).ready(function () {
 			type: 'post',
 			data:{
 				statusBill:1
-			},
-			success: function (data) {	       
 			}
 		});
 		for ( var i in cart) {
