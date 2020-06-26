@@ -72,7 +72,9 @@ public class CartController extends HttpServlet {
 							Integer.parseInt(idProduct), nameProduct, Integer.parseInt(Total),
 							Integer.parseInt(Totalmoney));
 				} else if (statusBill == 1) {
-					billdao.updateStatusBill(billdao.FUNCTION_findBillwithIdUser(model.getIduser()), 1);
+					String TotalProductInBill = request.getParameter("TotalProductInBill");
+					String TotalmoneyInBill = request.getParameter("TotalmoneyInBill");
+					billdao.updateStatusBill(billdao.FUNCTION_findBillwithIdUser(model.getIduser()), 1,Integer.parseInt(TotalProductInBill),Integer.parseInt(TotalmoneyInBill));
 				}
 			}
 		} catch (SQLException e) {

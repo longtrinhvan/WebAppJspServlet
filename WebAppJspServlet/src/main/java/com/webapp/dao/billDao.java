@@ -38,7 +38,7 @@ public class billDao {
 		return 0;
 	}
 
-	public int updateStatusBill(int idBill, int StatusBill) {
+	public int updateStatusBill(int idBill, int StatusBill,int TotalProductInBill,int TotalmoneyInBill) {
 		Connection connection = null;
 		connect conn = new connect();
 		try {
@@ -46,6 +46,8 @@ public class billDao {
 			CallableStatement statement = (CallableStatement) connection.prepareCall(UPDATE_STATUS_BILL);
 			statement.setInt(1, idBill);
 			statement.setInt(2, StatusBill);
+			statement.setInt(3, TotalProductInBill);
+			statement.setInt(4, TotalmoneyInBill);
 			statement.execute();
 		} catch (SQLException e) {
 			printSQLException(e);
