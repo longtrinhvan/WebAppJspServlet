@@ -244,11 +244,11 @@ CREATE TABLE bill (
 );
 CREATE TABLE detailbill (
   iddetailbill int NOT NULL PRIMARY KEY auto_increment,
-  idbill int NOT NULL,
-  idproductbuy int NOT NULL,
+  idbill int NULL,
+  idproductbuy int NULL,
   nameproductbuy VARCHAR(255) NULL,
-  totalproduct int NOT NULL,
-  totalMoneypro int NOT NULL
+  totalproduct int  NULL,
+  totalMoneypro int  NULL
 );
 
 
@@ -301,7 +301,7 @@ USE `webappjspservlet`$$
 CREATE FUNCTION `FUNCTION_findBillwithIdUser`(id int) RETURNS int
 BEGIN
  declare kq int;
-set kq=(SELECT idbill FROM bill where iduserbuy = id and statusbill = 0);
+set kq=(SELECT idbill FROM bill where iduserbuy = id and statusbill = 0 ORDER BY iduserbuy DESC LIMIT 1);
 RETURN kq;
 END$$
 DELIMITER ;
@@ -327,6 +327,18 @@ INSERT INTO `bill`(`idbill`,`iduserbuy`,`fullnamebuy`,`totalproduct`,`totalMoney
 VALUES(null,iduserbuyI,fullnamebuyI,totalproductI,totalMoneyI,datebuyI,statusbillI);
 END$$
 DELIMITER ;
+USE webappjspservlet;
 select *from bill;
 select *from detailbill;
+
+DROP procedure IF EXISTS `PROCEDURE_InsertDetailbill`;
+DELIMITER $$
+USE `webappjspservlet`$$
+CREATE PROCEDURE `PROCEDURE_InsertDetailbill` (idbillI int,idproductbuyI int,nameproductbuyI VARCHAR(255),totalproductI int ,totalMoneyproI int )
+BEGIN
+INSERT INTO `detailbill`(`idbill`,`idproductbuy`,`nameproductbuy`,`totalproduct`,`totalMoneypro`)
+VALUES(idbillI,idproductbuyI,nameproductbuyI,totalproductI,totalMoneyproI);
+
+END$$
+DELIMITER ;
 

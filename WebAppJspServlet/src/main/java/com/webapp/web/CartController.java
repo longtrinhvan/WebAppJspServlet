@@ -36,10 +36,9 @@ public class CartController extends HttpServlet {
 			throws ServletException, IOException {
 		userModel model = (userModel) SessionUtil.getInstance().getValue(request, "usermodel");
 		checklogin(request, response);
-		int idbill = billdao.FUNCTION_findBillwithIdUser(model.getIduser());
 		try {
 			if (request.getParameter("statusBill") != null) {
-				int statusBill =Integer.parseInt(request.getParameter("statusBill"));
+				int statusBill = Integer.parseInt(request.getParameter("statusBill"));
 				if (statusBill == 0) {
 					java.util.Date date = new java.util.Date();
 					java.sql.Date sqlDate = new java.sql.Date(date.getTime());
@@ -49,10 +48,11 @@ public class CartController extends HttpServlet {
 					String nameProduct = request.getParameter("nameProduct");
 					String Total = request.getParameter("Total");
 					String Totalmoney = request.getParameter("Totalmoney");
-					idbill = billdao.FUNCTION_findBillwithIdUser(model.getIduser());
+					int idbill = billdao.FUNCTION_findBillwithIdUser(model.getIduser());
 					detailbilldao.insertDetailBill(idbill, Integer.parseInt(idProduct), nameProduct,
 							Integer.parseInt(Total), Integer.parseInt(Totalmoney));
-				}else if (statusBill == 1) {
+				} else if (statusBill == 1) {
+					int idbill = billdao.FUNCTION_findBillwithIdUser(model.getIduser());
 					billdao.updateStatusBill(idbill, 1);
 				}
 			}
