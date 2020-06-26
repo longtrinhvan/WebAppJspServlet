@@ -36,12 +36,16 @@ public class CartController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		userModel model = (userModel) SessionUtil.getInstance().getValue(request, "usermodel");
+		String thongBao = "error";
+		request.setAttribute("thongBao", thongBao);
 		if (model != null) {
 			if (model.getRoleid() == 2) {
+				request.setAttribute("thongBao", thongBao);
 				response.sendRedirect(request.getContextPath() + "/dang-nhap?thongBao=noSupport");
 				return;
 			}
 		} else {
+			request.setAttribute("thongBao", thongBao);
 			response.sendRedirect(request.getContextPath() + "/dang-nhap?thongBao=notloggedin");
 			return;
 		}

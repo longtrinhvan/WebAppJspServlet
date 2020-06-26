@@ -79,6 +79,22 @@ $(document).ready(function () {
 		$.ajax({
 			url: 'gio-hang',
 			type: 'post',
+			dataType: "html",
+			data:{
+				statusBill:0
+			},success: function (data) {
+				if($(data).find('#thongBao').val()=="error"){
+					var form = $('<form></form>');
+					form.attr("method", "post");
+					form.attr("action","gio-hang");		
+					$(form).appendTo('body').submit();
+					return;
+				}
+			}
+		});
+		$.ajax({
+			url: 'gio-hang',
+			type: 'post',
 			data:{
 				statusBill:0
 			}

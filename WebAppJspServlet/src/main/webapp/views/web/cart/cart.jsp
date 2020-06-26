@@ -96,10 +96,10 @@
 			</div>
 			<div class="rw-r05">
 				<button>Thanh toán</button>
+				<input type="hidden" value="${thongBao}" id="thongBao" />
 			</div>
 		</div>
 	</div>
-	<input type="hidden" value="${thongBao}" id="thongBao" />
 	<div class="about"></div>
 </body>
 
